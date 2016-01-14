@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Idea & Documentation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <center>
+            <h1> Knapsack Project </h1>
+            <h2> Code Idea + Documentation </h2>
+            <h3> Ηλίας Φλόκας 1458 </h3>
+        </center>
+        <hr>
+        
+        <p>Αυτή η σελίδα περιλαμβάνει μια πολύ σύντομη περιγραφή της ιδέας του project, 
+           καθώς και μια λίγο αναλυτικότερη ματιά στο project μέσω μιας σύντομης ανάλυσης
+           συναρτήσεων του κώδικα.</p>
+        
+        <div>
+            <h2><u> Περιεχόμενα </u></h2>
+            <ul>
+                <li>
+                    <a style="text-decoration: none;" href="#description">Περιγραφη Ιδέας Project</a>
+                </li>
+                <li>
+                    <a style="text-decoration: none;" href="#knapsack">Knapsack.java</a>
+                </li>
+                <li>
+                    <a style="text-decoration: none;" href="#calculateResult">CalculateResult.java</a>
+                </li>
+            </ul>
+        </div>
+        
+        <hr>
+        
+        <a name="description"></a> <h2><u> Περιγραφή Iδέας Project </u></h2>
+        <p> 
+            Η βασική ιδέα του project είναι η εξής, ο χρήστης δίνει στο μηχάνημα 
+            πόσες ώρες θέλει να λειτουργεί κάθε ηλεκτρική συσκευή που τον αφορά.
+            Επίσης δίνει το μέγιστο ποσό το οποίο διατίθεται να πληρώσει.
+            Αφού λοιπόν δώσει τα παραπάνω δεδομένα και πατήσει το κουμπί "Υπολογισμός"
+            το μηχάνημα θα εκτελέσει τον αλγόριθμο του κλασματικού σακκιδίου (που θα εξηγηθεί
+            αναλυτικότερα μέσω των συναρτήσεων παρακάτω) για τις συσκευές που έδωσε ώρες 
+            λειτουργίας ο χρήστης και θα του επιστρέψει τα ονόματα των συσκευών που συνίσταται να
+            χρησιμοποιήσει, πόσα Watt είναι η κάθε συσκευή καθώς και πόσες ώρες τον συμφέρει 
+            να την έχει ανοιχτή ώστε να πάρει την καλύτερη απόδοση στην μικρότερη δυνατή τιμή
+            (στην χειρότερη περίπτωση η τιμή του ποσού θα είναι όσο αυτήν που έδωσε ο χρήστης).
+        </p>
+        
+        <br>
+        
+        <a name="knapsack"></a> <h2><u> Αρχείο: <b>Knapsack.java</b> </u></h2>
+        <table border="1" style="width:100%;">
+            <tr style=" text-align: center;">
+                <td style="width: 5%">#</td>
+                <td style="width: 30%">Συνάρτηση</td>
+                <td style="width: 65%">Περιγραφή Ιδέας</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">1</td>
+                <td style="text-align: center"><b>public void doPost</b></td>
+                <td>Η μοναδική συνάρτηση του αρχείου, απαιτείται η χρήση της
+                    από την HTTPServlet και αυτό που κάνει είναι να παίρνει
+                    το username & password από την φόρμα της σελίδας index.jsp
+                    και να δοκιμάζει μέσω της συνάρτησης ldap.auth (από την βιβλιοθήκη
+                    UTHLdap που είχαμε δημιουργήσει στα πλαίσια της 5ης εργασίας) να
+                    δει αν αυτός ο χρήστης είναι όντως έγκυρος χρήστης του UTH.</td>
+            </tr>
+        </table>
+        
+        <br>
+        
+        <a name="calculateResult"></a> <h2><u> CalculateResult.java </u></h2>
+        <table border="1" style="width:100%;">
+            <tr style=" text-align: center;">
+                <td style="width: 5%">#</td>
+                <td style="width: 30%">Συνάρτηση</td>
+                <td style="width: 65%">Περιγραφή Ιδέας</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">1</td>
+                <td style="text-align: center"><b>public void doPost</b></td>
+                <td>Αρχικοποιεί τις μεταβλητές & τους πίνακες με τιμές που πήρε 
+                    απ' τον χρήστη.Καλεί την quickSort με σκοπό να ταξινομήσει τους
+                    4 πίνακες (Ώρες, Ονόματα Συσκευών, Κόστος & Watt).Αφου τελειώσει 
+                    επιτυχώς ο quick sort καλεί την Knapsack για να εκτελέσει τον 
+                    αλγόριθμο του κλασματικού σακκιδίου.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">2</td>
+                <td style="text-align: center"><b>private void quickSort</b></td>
+                <td>Εκτελεί μια εκδοχή του αναδρομικού αλγορίθμου quickSort για ταξινόμηση
+                    των τεσσάρων πινάκων με αυξανόμενο κόστος.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">3</td>
+                <td style="text-align: center"><b>private void swapDouble</b></td>
+                <td>Παίρνει έναν πίνακα double μεταβλητών ως όρισμα καθώς και δύο
+                    μεταβλητές θέσης και εναλλάσει τα στοιχεία του πίνακα που βρίσκονται
+                    στα σημεία των μεταβλητών θέσης.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">4</td>
+                <td style="text-align: center"><b>private void swapInt</b></td>
+                <td>Παίρνει έναν πίνακα integer μεταβλητών ως όρισμα καθώς και δύο
+                    μεταβλητές θέσης και εναλλάσει τα στοιχεία του πίνακα που βρίσκονται
+                    στα σημεία των μεταβλητών θέσης.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">5</td>
+                <td style="text-align: center"><b>private void swapString</b></td>
+                <td>Παίρνει έναν πίνακα String μεταβλητών ως όρισμα καθώς και δύο
+                    μεταβλητές θέσης και εναλλάσει τα στοιχεία του πίνακα που βρίσκονται
+                    στα σημεία των μεταβλητών θέσης.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">6</td>
+                <td style="text-align: center"><b>private void partition</b></td>
+                <td>Καλεί 3 βοηθητικές συναρτήσεις (swapDouble, swapInt, swapString) για
+                    εναλλαγή θέσεων του πίνακα. και επιστρέφει την κατάλληλη θέση
+                    για τοποθέτηση ενός "τοίχου" με σκοπό να σπάσει τον πίνακα σε
+                    αριστερό και δεξί μέλος.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">7</td>
+                <td style="text-align: center"><b>private void createFractionArray</b></td>
+                <td>Ο μόνος λόγος αυτής της συνάρτησης είναι να δημιουργεί τον 
+                    πίνακα με τις τιμές (αξία/βάρος) που απαιτεί ο αλγόριθμος κλασματικού
+                    σακκιδίου για να αποδώσει σωστά τα αποτελέσματα.Αν η τιμή του κόστους
+                    είναι 0 βάζει το μηδέν στο τέλος του πίνακα, αν είναι διάφορο του 0
+                    τότε βάζει το κλάσμα 1/κόστος στις αρχικές θέσεις του πίνακα
+                    προσαρμόζοντας έτσι τα indexes ώστε να μπαίνουνε όλα αυτόματα
+                    πίσω η μπροστά απο προηγούμενες τιμές.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">8</td>
+                <td style="text-align: center"><b>private void Knapsack</b></td>
+                <td>O βασικός αλγόριθμος υλοποίησης κλασματικού σακκιδίου.
+                    Ελέγχει με κάθε νέο αντικείμενο αν ξεπερνάμε την τιμή
+                    που έδωσε ο χρήστης ως μέγιστο ποσό και κάνει ανάλογες αναθέσεις
+                    σε κάθε περίπτωση.Τέλος καλέι την printResultData.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center">9</td>
+                <td style="text-align: center"><b>private void printResultData</b></td>
+                <td>Μια συνάρτηση που εκτυπώνει μορφοποιημένα τα αποτελέσματα που
+                    της δίνει η συνάρτηση κλασματικού σακκιδίου.</td>
+            </tr>
+        </table>
+        
+    </body>
+</html>
